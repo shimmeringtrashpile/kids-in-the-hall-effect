@@ -25,5 +25,20 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  latchState = digitalRead(latchPin);
+  // hallState = digitalRead(hallPin);
 
+  if (latchState == HIGH) {
+    // turn on the LED
+    digitalWrite(ledPin, HIGH);
+    Serial.println("Latching!");
+  // } else if (hallState == LOW) { // The US1881 is open drain. LOW when magnet passes.
+  //   // turn on the LED
+  //   digitalWrite(ledPin, HIGH);
+  //   Serial.println("Magnet on Hall!");
+  } else {
+    // turn off the LED
+    digitalWrite(ledPin, LOW);
+    Serial.println("No Latch!");
+  }
 }
